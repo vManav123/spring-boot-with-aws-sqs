@@ -8,6 +8,7 @@ import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
 import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,12 @@ public class SQSController {
     {
         messagingTemplate.send(sqsEndpoint, MessageBuilder.withPayload(message).build());
         return "Message Sent";
+    }
+    
+    @GetMapping(path = "/health")
+    public String healthCheck()
+    {
+        return "Application is Running Fine";
     }
 
     @SqsListener(value = "AWS_SQS_Practice")
