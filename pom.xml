@@ -14,7 +14,7 @@
     <name>spring-boot-with-aws-sqs-messaging</name>
     <description>spring-boot-with-aws-sqs-messaging</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
